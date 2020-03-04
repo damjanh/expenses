@@ -1,0 +1,40 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "babel"
+    ],
+    "rules": {
+    // Ignore line break style
+    "linebreak-style": 0,
+    // Indent with 4 spaces
+    "indent": ["error", 4],
+    // Indent JSX with 4 spaces
+    "react/jsx-indent": ["error", 4],
+    // Indent props with 4 spaces
+    "react/jsx-indent-props": ["error", 4],
+    "react/state-in-constructor": [2, "never"],
+    "react/destructuring-assignment": ["error", "always", {
+        "ignoreClassFields": true
+        }]
+    }
+}

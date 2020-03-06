@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import 'normalize.css';
 import './styles/styles.scss';
 
@@ -19,6 +19,9 @@ const AddExpensePage = () => (
 const NotFoundPage = () => (
     <div>
         Not found 404!
+        <p>
+            <Link to="/">Go home!</Link>
+        </p>
     </div>
 );
 

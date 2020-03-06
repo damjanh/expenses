@@ -12,47 +12,30 @@ import './styles/styles.scss';
 const ExpenseDashboardPage = () => (
     <div>
         This is from dashboard component!
-        <p>
-            <Link to="/create">Create</Link>
-            <Link to="/edit">Edit</Link>
-            <Link to="/help">Help</Link>
-        </p>
     </div>
 );
 
 const AddExpensePage = () => (
     <div>
         This is from add expense component!
-        <p>
-            <Link to="/">Home</Link>
-        </p>
     </div>
 );
 
 const EditExpensePage = () => (
     <div>
         Edit expense page.
-        <p>
-            <Link to="/">Home</Link>
-        </p>
     </div>
 );
 
 const HelpPage = () => (
     <div>
         Help page.
-        <p>
-            <Link to="/">Home</Link>
-        </p>
     </div>
 );
 
 const NotFoundPage = () => (
     <div>
         Not found 404!
-        <p>
-            <Link to="/">Home</Link>
-        </p>
     </div>
 );
 
@@ -61,6 +44,12 @@ const Header = () => (
         <h1>
             Expenses
         </h1>
+        <p>
+            <Link to="/">Dashboard</Link>
+            <Link to="/create">Create</Link>
+            <Link to="/edit">Edit</Link>
+            <Link to="/help">Help</Link>
+        </p>
     </header>
 );
 

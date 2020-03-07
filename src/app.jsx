@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import 'normalize.css';
 import './styles/styles.scss';
 
@@ -20,4 +21,10 @@ const state = store.getState();
 const visible = getVisbleExpense(state.expenses, state.filters);
 console.log(visible);
 
-ReactDOM.render(<AppRouter />, document.getElementById('app'));
+const jsx = (
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>
+);
+
+ReactDOM.render(jsx, document.getElementById('app'));

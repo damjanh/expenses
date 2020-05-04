@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import { setTextFilter } from '../actions/filters';
 
 const ExpenseListFilters = (props) => {
-    const { filters: { text } } = props;
-    const { dispatch } = props;
+    const { filters: { text }, dispatch } = props;
     return (
         <div>
             <input

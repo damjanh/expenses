@@ -2,15 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
+import { editExpense } from '../actions/expenses';
 
 const EditExpensePage = (props) => {
-    const { expense, match: { params: { id } } } = props;
+    const {
+        dispatch,
+        history,
+        expense,
+        match: { params: { id } },
+    } = props;
     return (
         <div>
             <ExpenseForm
                 expense={expense}
                 onSubmit={(exp) => {
-                    console.log(exp);
+                    dispatch(editExpense(id, exp));
+                    history.push('/');
                 }}
             />
         </div>
@@ -24,6 +31,8 @@ EditExpensePage.defaultProps = {
 };
 
 EditExpensePage.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
     expense: PropTypes.shape({
         id: PropTypes.string.isRequired,
         createdAt: PropTypes.string.isRequired,

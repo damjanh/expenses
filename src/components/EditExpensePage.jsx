@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 const EditExpensePage = (props) => {
     const { match: { params: { id } } } = props;
@@ -20,4 +21,11 @@ EditExpensePage.propTypes = {
     }).isRequired,
 };
 
-export default EditExpensePage;
+const mapStateToProps = (state, props) => {
+    const expense = state.expenses.find((exp) => exp.id === props.match.params.id);
+    return {
+        expense,
+    };
+};
+
+export default connect(mapStateToProps)(EditExpensePage);

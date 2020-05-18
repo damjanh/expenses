@@ -6,13 +6,22 @@ import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 
 export default class ExpsenseForm extends React.Component {
-    state = {
-        description: '',
-        note: '',
-        amount: '',
-        createdAt: moment(),
-        calendarFocused: false,
-        error: '',
+    constructor(props) {
+        super(props);
+
+        const {
+            expense,
+        } = props;
+
+        // eslint-disable-next-line react/state-in-constructor
+        this.state = {
+            description: expense.description ? expense.description : '',
+            note: expense.note ? expense.note : '',
+            amount: expense.amount ? (expense.amount / 100).toString() : '',
+            createdAt: expense.createdAt ? moment(expense.createdAt) : moment(),
+            calendarFocused: false,
+            error: '',
+        };
     }
 
     onDescriptionChange = (e) => {
@@ -109,6 +118,21 @@ export default class ExpsenseForm extends React.Component {
     }
 }
 
+ExpsenseForm.defaultProps = {
+    expense: {
+        description: '',
+        createdAt: moment(),
+        amount: '',
+        note: '',
+    },
+};
+
 ExpsenseForm.propTypes = {
+    expense: PropTypes.shape({
+        description: PropTypes.string,
+        createdAt: PropTypes.string,
+        amount: PropTypes.string,
+        note: PropTypes.string,
+    }),
     onSubmit: PropTypes.func.isRequired,
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
@@ -43,11 +44,22 @@ export default class ExpsenseForm extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        const { description, amount } = this.state;
+        const {
+            description,
+            amount,
+            note,
+            createdAt,
+        } = this.state;
         if (!description || !amount) {
             this.setState(() => ({ error: 'Please provide a description and amount.' }));
         } else {
             this.setState(() => ({ error: '' }));
+            this.props.onSubmit({
+                description,
+                note,
+                amount: parseFloat(amount, 10) * 100,
+                createdAt: createdAt.valueOf(),
+            });
         }
     }
 
@@ -96,3 +108,7 @@ export default class ExpsenseForm extends React.Component {
         );
     }
 }
+
+ExpsenseForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+};

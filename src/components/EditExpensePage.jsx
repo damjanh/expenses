@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
-import { editExpense } from '../actions/expenses';
+import { editExpense, removeExpense } from '../actions/expenses';
 
 const EditExpensePage = (props) => {
     const {
@@ -20,6 +20,15 @@ const EditExpensePage = (props) => {
                     history.push('/');
                 }}
             />
+            <button
+                type="submit"
+                onClick={() => {
+                    dispatch(removeExpense(id));
+                    history.push('/');
+                }}
+            >
+                Remove
+            </button>
         </div>
     );
 };
@@ -35,9 +44,9 @@ EditExpensePage.propTypes = {
     history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
     expense: PropTypes.shape({
         id: PropTypes.string.isRequired,
-        createdAt: PropTypes.string.isRequired,
+        createdAt: PropTypes.number.isRequired,
         description: PropTypes.string.isRequired,
-        amount: PropTypes.string.isRequired,
+        amount: PropTypes.number.isRequired,
         note: PropTypes.string,
     }),
     match: PropTypes.shape({

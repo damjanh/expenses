@@ -121,8 +121,8 @@ export default class ExpsenseForm extends React.Component {
 ExpsenseForm.defaultProps = {
     expense: {
         description: '',
-        createdAt: moment(),
-        amount: '',
+        createdAt: null,
+        amount: null,
         note: '',
     },
 };
@@ -130,8 +130,8 @@ ExpsenseForm.defaultProps = {
 ExpsenseForm.propTypes = {
     expense: PropTypes.shape({
         description: PropTypes.string,
-        createdAt: PropTypes.string,
-        amount: PropTypes.string,
+        createdAt: PropTypes.number,
+        amount: PropTypes.number,
         note: PropTypes.string,
     }),
     onSubmit: PropTypes.func.isRequired,

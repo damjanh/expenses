@@ -11,6 +11,7 @@ export default class ExpsenseForm extends React.Component {
         amount: '',
         createdAt: moment(),
         calendarFocused: false,
+        error: '',
     }
 
     onDescriptionChange = (e) => {
@@ -40,6 +41,16 @@ export default class ExpsenseForm extends React.Component {
         this.setState(() => ({ calendarFocused: focused }));
     }
 
+    onSubmit = (e) => {
+        e.preventDefault();
+        const { description, amount } = this.state;
+        if (!description || !amount) {
+            this.setState(() => ({ error: 'Please provide a description and amount.' }));
+        } else {
+            this.setState(() => ({ error: '' }));
+        }
+    }
+
     render() {
         const {
             description,
@@ -47,10 +58,12 @@ export default class ExpsenseForm extends React.Component {
             amount,
             createdAt,
             calendarFocused,
+            error,
         } = this.state;
         return (
             <div>
-                <form>
+                {error && <p>{error}</p>}
+                <form onSubmit={this.onSubmit}>
                     <input
                         type="text"
                         placeholder="Description"
@@ -77,7 +90,7 @@ export default class ExpsenseForm extends React.Component {
                         value={note}
                         onChange={this.onNoteChange}
                     />
-                    <button type="button">Add Expense</button>
+                    <button type="submit">Add Expense</button>
                 </form>
             </div>
         );

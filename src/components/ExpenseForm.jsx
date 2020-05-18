@@ -31,7 +31,9 @@ export default class ExpsenseForm extends React.Component {
     }
 
     onDateChange = (date) => {
-        this.setState(() => ({ createdAt: date }));
+        if (date) {
+            this.setState(() => ({ createdAt: date }));
+        }
     }
 
     onFocusChange = ({ focused }) => {

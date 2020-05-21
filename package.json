@@ -10,11 +10,13 @@
     "start": "webpack-dev-server --mode development --open --hot",
     "clean": "rm -rf node_modules",
     "build": "webpack --mode production",
-    "lint": "eslint src/**/*.js[x]"
+    "lint": "eslint src/**/*.js[x]",
+    "test": "jest"
   },
   "author": "damjanh",
   "license": "Apache-2.0",
   "dependencies": {
+    "jest": "^26.0.1",
     "moment": "^2.25.3",
     "normalize.css": "^8.0.1",
     "react": "^16.12.0",
@@ -38,6 +40,7 @@
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.13.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",

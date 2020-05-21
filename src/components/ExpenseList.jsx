@@ -13,17 +13,15 @@ export const ExpenseList = (props) => {
                 expenses.length === 0 ? (
                     <p>No expenses</p>
                 ) : (
-                    expenses.map((expense) => {
-                        return (
-                            <ExpenseListItem
-                                key={expense.id}
-                                id={expense.id}
-                                description={expense.description}
-                                amount={expense.amount}
-                                createdAt={expense.createdAt}
-                            />
-                        );
-                    })
+                    expenses.map((expense) => (
+                        <ExpenseListItem
+                            key={expense.id}
+                            id={expense.id}
+                            description={expense.description}
+                            amount={expense.amount}
+                            createdAt={expense.createdAt}
+                        />
+                    ))
                 )
             }
         </div>

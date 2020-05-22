@@ -4,34 +4,39 @@ import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { editExpense, removeExpense } from '../actions/expenses';
 
-const EditExpensePage = (props) => {
-    const {
-        dispatch,
-        history,
-        expense,
-        match: { params: { id } },
-    } = props;
-    return (
-        <div>
-            <ExpenseForm
-                expense={expense}
-                onSubmit={(exp) => {
-                    dispatch(editExpense(id, exp));
-                    history.push('/');
-                }}
-            />
-            <button
-                type="submit"
-                onClick={() => {
-                    dispatch(removeExpense(id));
-                    history.push('/');
-                }}
-            >
-                Remove
-            </button>
-        </div>
-    );
-};
+export class EditExpensePage extends React.Component {
+    onSubmit = (expense) => {
+        const { editExpenseProp, history, expense: { id } } = this.props;
+        editExpenseProp(id, expense);
+        history.push('/');
+    }
+
+    onRemove = () => {
+        const { removeExpenseProp, history, expense: { id } } = this.props;
+        removeExpenseProp(id);
+        history.push('/');
+    }
+
+    render() {
+        const {
+            expense,
+        } = this.props;
+        return (
+            <div>
+                <ExpenseForm
+                    expense={expense}
+                    onSubmit={this.onSubmit}
+                />
+                <button
+                    type="submit"
+                    onClick={this.onRemove}
+                >
+                    Remove
+                </button>
+            </div>
+        );
+    }
+}
 
 EditExpensePage.defaultProps = {
     expense: {
@@ -40,7 +45,8 @@ EditExpensePage.defaultProps = {
 };
 
 EditExpensePage.propTypes = {
-    dispatch: PropTypes.func.isRequired,
+    editExpenseProp: PropTypes.func.isRequired,
+    removeExpenseProp: PropTypes.func.isRequired,
     history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
     expense: PropTypes.shape({
         id: PropTypes.string.isRequired,
@@ -49,18 +55,18 @@ EditExpensePage.propTypes = {
         amount: PropTypes.number.isRequired,
         note: PropTypes.string,
     }),
-    match: PropTypes.shape({
-        params: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-        }).isRequired,
-    }).isRequired,
 };
 
 const mapStateToProps = (state, props) => {
-    const expense = state.expenses.find((exp) => exp.id === props.match.params.id);
+    const expense = state.expenses.find((exp) => exp.id === props.expense.id);
     return {
         expense,
     };
 };
 
-export default connect(mapStateToProps)(EditExpensePage);
+const mapDispatchToProps = (dispatch) => ({
+    editExpenseProp: (id, expense) => dispatch(editExpense(id, expense)),
+    removeExpenseProp: (id) => dispatch(removeExpense(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditExpensePage);

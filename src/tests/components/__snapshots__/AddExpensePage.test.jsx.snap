@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should handle onSubmit 1`] = `
+<div>
+  <h1>
+    Add Expense
+  </h1>
+  <ExpsenseForm
+    expense={
+      Object {
+        "amount": null,
+        "createdAt": null,
+        "description": "",
+        "note": "",
+      }
+    }
+    onSubmit={[Function]}
+  />
+</div>
+`;
+
+exports[`Should render AddExpensePage correctly 1`] = `
+<div>
+  <h1>
+    Add Expense
+  </h1>
+  <ExpsenseForm
+    expense={
+      Object {
+        "amount": null,
+        "createdAt": null,
+        "description": "",
+        "note": "",
+      }
+    }
+    onSubmit={[Function]}
+  />
+</div>
+`;

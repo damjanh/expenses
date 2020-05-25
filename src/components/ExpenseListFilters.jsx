@@ -97,11 +97,11 @@ ExpenseListFilters.propTypes = {
 
 const mapDispatchToProps = (dispatch) => (
     {
-        setTextFilter: (text) => dispatch(setTextFilter(text)),
-        sortByDate: () => dispatch(sortByDate()),
-        sortByAmount: () => dispatch(sortByAmount()),
-        setStartDate: (startDate) => dispatch(setStartDate(startDate)),
-        setEndDate: (endDate) => dispatch(setEndDate(endDate)),
+        setTextFilterProp: (text) => dispatch(setTextFilter(text)),
+        sortByDateProp: () => dispatch(sortByDate()),
+        sortByAmountProp: () => dispatch(sortByAmount()),
+        setStartDateProp: (startDate) => dispatch(setStartDate(startDate)),
+        setEndDateProp: (endDate) => dispatch(setEndDate(endDate)),
     }
 );
 

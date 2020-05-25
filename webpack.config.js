@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env) => {
     const isProduction = env === 'production';
@@ -37,9 +38,19 @@ module.exports = (env) => {
                 {
                     test: /\.s?css$/,
                     use: [
-                        'style-loader',
-                        'css-loader',
-                        'sass-loader',
+                        MiniCssExtractPlugin.loader,
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true,
+                            },
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true,
+                            },
+                        },
                     ],
                 },
             ],
@@ -48,10 +59,11 @@ module.exports = (env) => {
             new HtmlWebpackPlugin({
                 template: './index.html',
             }),
+            new MiniCssExtractPlugin(),
         ],
         resolve: {
             extensions: ['.js', '.jsx', '.scss', '.css'],
         },
-        devtool: isProduction ? 'source-map' : 'cheap-module-evel-source-map',
+        devtool: isProduction ? 'source-map' : 'inline-source-map',
     };
 };

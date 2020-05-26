@@ -6,11 +6,30 @@ import {
     addExpense,
     editExpense,
     removeExpense,
+    setExpenses,
 } from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
-import expensesReducer from '../../reducers/expenses';
 
 const mockStore = configureStore([thunk]);
+
+beforeEach((done) => {
+    const expensesData = {};
+    expenses.forEach(({
+        id,
+        description,
+        note,
+        amount,
+        createdAt,
+    }) => {
+        expensesData[id] = {
+            description,
+            note,
+            amount,
+            createdAt,
+        };
+    });
+    database.ref('expenses').set(expensesData).then(() => done());
+});
 
 test('Should setup remove expense action object', () => {
     const action = removeExpense('123');
@@ -60,5 +79,13 @@ test('Should add expense to database and store', (done) => {
     }).then((snapshot) => {
         expect(snapshot.val()).toEqual(expense);
         done();
+    });
+});
+
+test('Should setup expense action with data', () => {
+    const action = setExpenses(expenses);
+    expect(action).toEqual({
+        type: 'SET_EXPENSES',
+        expenses,
     });
 });

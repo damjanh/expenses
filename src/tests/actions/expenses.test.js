@@ -1,9 +1,16 @@
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import database from '../../firebase/firebase';
 import {
+    startAddExpense,
     addExpense,
     editExpense,
     removeExpense,
 } from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
+import expensesReducer from '../../reducers/expenses';
+
+const mockStore = configureStore([thunk]);
 
 test('Should setup remove expense action object', () => {
     const action = removeExpense('123');
@@ -33,17 +40,25 @@ test('Should setup add expense action object', () => {
     });
 });
 
-// Invalid
-// test('Should setup add expense action object with default values', () => {
-//     const action = addExpense();
-//     expect(action).toEqual({
-//         type: 'ADD_EXPENSE',
-//         expense: {
-//             id: expect.any(String),
-//             description: '',
-//             note: '',
-//             amount: 0,
-//             createdAt: 0,
-//         },
-//     });
-// });
+test('Should add expense to database and store', (done) => {
+    const store = mockStore({});
+    const expense = {
+        description: expenses[0].description,
+        note: expenses[0].note,
+        amount: expenses[0].amount,
+        createdAt: expenses[0].createdAt,
+    };
+    store.dispatch(startAddExpense(expense)).then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: 'ADD_EXPENSE',
+            id: expect.any(String),
+            ...expense,
+        });
+
+        return database.ref(`expenses/${actions[0].expense.id}`).once('value');
+    }).then((snapshot) => {
+        expect(snapshot.val()).toEqual(expense);
+        done();
+    });
+});

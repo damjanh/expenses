@@ -35,7 +35,6 @@ test('Should setup add expense action object', () => {
     });
 });
 
-
 test('Should setup expense action with data', () => {
     const action = setExpenses(expenses);
     expect(action).toEqual({

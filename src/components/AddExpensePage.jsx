@@ -6,8 +6,8 @@ import { startAddExpense } from '../actions/expenses';
 
 export class AddExpensePage extends React.Component {
     onSubmit = (expense) => {
-        const { history, startAddExpense } = this.props;
-        startAddExpense(expense);
+        const { history, startAddExpenseProp } = this.props;
+        startAddExpenseProp(expense);
         history.push('/');
     };
 
@@ -24,12 +24,12 @@ export class AddExpensePage extends React.Component {
 }
 
 AddExpensePage.propTypes = {
-    startAddExpense: PropTypes.func.isRequired,
+    startAddExpenseProp: PropTypes.func.isRequired,
     history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    startAddExpense: (expense) => dispatch(startAddExpense(expense)),
+    startAddExpenseProp: (expense) => dispatch(startAddExpense(expense)),
 });
 
 export default connect(undefined, mapDispatchToProps)(AddExpensePage);

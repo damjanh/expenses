@@ -1,22 +1,25 @@
 import React from 'react';
 import {
-    BrowserRouter,
+    Router,
     Route,
     Switch,
 } from 'react-router-dom';
 
-import Header from '../components/Header';
+import createHistory from 'history/createBrowserHistory';
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
-/* eslint-disable import/no-named-as-default */
-import AddExpensePage from '../components/AddExpensePage';
-import EditExpensePage from '../components/EditExpensePage';
-/* eslint-enable import/no-named-as-default */
 import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
+/* eslint-disable import/no-named-as-default */
+import Header from '../components/Header';
+import AddExpensePage from '../components/AddExpensePage';
+import EditExpensePage from '../components/EditExpensePage';
 import LoginPage from '../components/LoginPage';
+/* eslint-enable import/no-named-as-default */
+
+export const history = createHistory();
 
 const AppRouter = () => (
-    <BrowserRouter>
+    <Router history={history}>
         <div>
             <Header />
             <Switch>
@@ -28,7 +31,7 @@ const AppRouter = () => (
                 <Route component={NotFoundPage} />
             </Switch>
         </div>
-    </BrowserRouter>
+    </Router>
 );
 
 export default AppRouter;

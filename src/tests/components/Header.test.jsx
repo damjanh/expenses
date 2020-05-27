@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 // import ReactShallowRenderer from 'react-test-renderer/shallow';
-import Header from '../../components/Header';
+import { Header } from '../../components/Header';
 
 // React test renderer example. Here for future reference.
 // test('Should render Header correctly', () => {
@@ -11,6 +11,6 @@ import Header from '../../components/Header';
 // });
 
 test('Should render Header correctly', () => {
-    const wrapper = shallow(<Header />);
+    const wrapper = shallow(<Header startLogoutProp={() => {}} />);
     expect(wrapper).toMatchSnapshot();
 });

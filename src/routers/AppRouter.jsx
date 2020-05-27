@@ -7,7 +7,6 @@ import {
 
 import { createBrowserHistory } from 'history';
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
-import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
 /* eslint-disable import/no-named-as-default */
 import AddExpensePage from '../components/AddExpensePage';
@@ -27,7 +26,6 @@ const AppRouter = () => (
                 <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} />
                 <PrivateRoute path="/create" component={AddExpensePage} />
                 <PrivateRoute path="/edit/:id" component={EditExpensePage} />
-                <Route path="/help" component={HelpPage} />
                 <Route component={NotFoundPage} />
             </Switch>
         </div>

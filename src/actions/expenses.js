@@ -53,10 +53,14 @@ const startSetExpenses = () => (dispatch) => database.ref('expenses').once('valu
     dispatch(setExpenses(expenses));
 });
 
+const startRemoveExpense = (id) => (dispatch) => database.ref(`expenses/${id}`).remove().then(() => {
+    dispatch(removeExpense(id));
+});
 
 export {
     startAddExpense,
     addExpense,
+    startRemoveExpense,
     removeExpense,
     editExpense,
     startSetExpenses,

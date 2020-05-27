@@ -7,8 +7,10 @@ import {
 
 import Header from '../components/Header';
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
-import { AddExpensePage } from '../components/AddExpensePage';
-import { EditExpensePage } from '../components/EditExpensePage';
+/* eslint-disable import/no-named-as-default */
+import AddExpensePage from '../components/AddExpensePage';
+import EditExpensePage from '../components/EditExpensePage';
+/* eslint-enable import/no-named-as-default */
 import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
 

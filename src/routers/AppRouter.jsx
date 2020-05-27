@@ -13,13 +13,15 @@ import EditExpensePage from '../components/EditExpensePage';
 /* eslint-enable import/no-named-as-default */
 import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
+import LoginPage from '../components/LoginPage';
 
 const AppRouter = () => (
     <BrowserRouter>
         <div>
             <Header />
             <Switch>
-                <Route path="/" component={ExpenseDashboardPage} exact />
+                <Route path="/" component={LoginPage} exact />
+                <Route path="/dashboard" component={ExpenseDashboardPage} />
                 <Route path="/create" component={AddExpensePage} />
                 <Route path="/edit/:id" component={EditExpensePage} />
                 <Route path="/help" component={HelpPage} />

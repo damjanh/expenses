@@ -12,10 +12,8 @@ export const Header = (props) => {
                 Expenses
             </h1>
             <p>
-                <NavLink to="/" activeClassName="is-active" exact> Dashboard</NavLink>
+                <NavLink to="/dashboard" activeClassName="is-active"> Dashboard</NavLink>
                 <NavLink to="/create" activeClassName="is-active" exact>Create</NavLink>
-                <NavLink to="/edit" activeClassName="is-active" exact>Edit</NavLink>
-                <NavLink to="/help" activeClassName="is-active" exact>Help</NavLink>
                 <button type="button" onClick={startLogoutProp}>Logout</button>
             </p>
         </header>

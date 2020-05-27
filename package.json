@@ -1,6 +1,9 @@
 {
   "name": "expenses",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.15.x"
+  },
   "main": "app.jsx",
   "repository": {
     "type": "git",

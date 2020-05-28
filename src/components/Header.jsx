@@ -15,8 +15,7 @@ export const Header = (props) => {
                             Expenses
                         </h1>
                     </Link>
-                    {/* <NavLink to="/create" activeClassName="is-active" exact>Create</NavLink> */}
-                    <button type="button" onClick={startLogoutProp}>Logout</button>
+                    <button className="button button--link" type="button" onClick={startLogoutProp}>Logout</button>
                 </div>
             </div>
         </header>

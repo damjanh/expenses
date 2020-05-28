@@ -10,8 +10,8 @@ export const LoginPage = (props) => {
             <div className="box-layout__box">
                 <h1 className="box-layout__title">Expenses</h1>
                 <p>Control your expenses!</p>
-                <button type="button" onClick={startLoginProp}>
-                    Login
+                <button className="button" type="button" onClick={startLoginProp}>
+                    Login with Google
                 </button>
             </div>
         </div>

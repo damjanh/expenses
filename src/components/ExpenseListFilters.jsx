@@ -50,32 +50,40 @@ export class ExpenseListFilters extends React.Component {
         } = this.props;
         const { calendarFocused } = this.state;
         return (
-            <div>
-                <input
-                    type="text"
-                    value={text}
-                    onChange={this.onTextChange}
-                />
-                <select
-                    value={sortBy}
-                    onChange={this.onSortChange}
-                >
-                    <option value="date">Date</option>
-                    <option value="amount">Amount</option>
-                </select>
-                <DateRangePicker
-                    startDate={startDate}
-                    endDate={endDate}
-                    onDatesChange={this.onDatesChange}
-                    focusedInput={calendarFocused}
-                    onFocusChange={this.onFocusChange}
-                    numberOfMonths={1}
-                    isOutsideRange={() => false}
-                    startDateId="start"
-                    endDateId="end"
-                    // eslint-disable-next-line react/jsx-boolean-value
-                    showClearDates={true}
-                />
+            <div className="contnet-container">
+                <div className="input-group">
+                    <div className="input-group__item">
+                        <input
+                            type="text"
+                            value={text}
+                            onChange={this.onTextChange}
+                        />
+                    </div>
+                    <div className="input-group__item">
+                        <select
+                            value={sortBy}
+                            onChange={this.onSortChange}
+                        >
+                            <option value="date">Date</option>
+                            <option value="amount">Amount</option>
+                        </select>
+                    </div>
+                    <div className="input-group__item">
+                        <DateRangePicker
+                            startDate={startDate}
+                            endDate={endDate}
+                            onDatesChange={this.onDatesChange}
+                            focusedInput={calendarFocused}
+                            onFocusChange={this.onFocusChange}
+                            numberOfMonths={1}
+                            isOutsideRange={() => false}
+                            startDateId="start"
+                            endDateId="end"
+                            // eslint-disable-next-line react/jsx-boolean-value
+                            showClearDates={true}
+                        />
+                    </div>
+                </div>
             </div>
         );
     }

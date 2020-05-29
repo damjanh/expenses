@@ -82,8 +82,7 @@ export class ExpenseListFilters extends React.Component {
                             isOutsideRange={() => false}
                             startDateId="start"
                             endDateId="end"
-                            // eslint-disable-next-line react/jsx-boolean-value
-                            showClearDates={true}
+                            showClearDates
                         />
                     </div>
                 </div>

@@ -10,7 +10,7 @@ export const Header = (props) => {
         <header className="header">
             <div className="content-container">
                 <div className="header__content">
-                    <Link className="header__title" to="/dashboard" activeClassName="is-active">
+                    <Link className="header__title" to="/dashboard" active="is-active">
                         <h1>
                             Expenses
                         </h1>

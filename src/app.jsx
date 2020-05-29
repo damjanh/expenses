@@ -20,6 +20,12 @@ const jsx = (
     </Provider>
 );
 
+const loading = (
+    <div className="loader">
+        <img className="loader__image" alt="Loading" src="/images/loader.gif" />
+    </div>
+);
+
 let hasRendered = false;
 const renderApp = () => {
     if (!hasRendered) {
@@ -28,7 +34,7 @@ const renderApp = () => {
     }
 };
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(loading, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {

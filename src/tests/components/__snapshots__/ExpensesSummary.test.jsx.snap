@@ -26,9 +26,9 @@ exports[`Should render ExpenseSummary with multiple expense correctly 1`] = `
       className="page-header__actions"
     >
       <Link
-        activeClassName="is-active"
+        active="is-active"
         className="button"
-        exact={true}
+        exact="true"
         to="/create"
       >
         Add Expense
@@ -64,9 +64,9 @@ exports[`Should render ExpenseSummary with one expense correctly 1`] = `
       className="page-header__actions"
     >
       <Link
-        activeClassName="is-active"
+        active="is-active"
         className="button"
-        exact={true}
+        exact="true"
         to="/create"
       >
         Add Expense

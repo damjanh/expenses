@@ -50,10 +50,12 @@ export class ExpenseListFilters extends React.Component {
         } = this.props;
         const { calendarFocused } = this.state;
         return (
-            <div className="contnet-container">
+            <div className="content-container">
                 <div className="input-group">
                     <div className="input-group__item">
                         <input
+                            className="text-input"
+                            placeholder="Search expenses"
                             type="text"
                             value={text}
                             onChange={this.onTextChange}
@@ -61,6 +63,7 @@ export class ExpenseListFilters extends React.Component {
                     </div>
                     <div className="input-group__item">
                         <select
+                            className="select"
                             value={sortBy}
                             onChange={this.onSortChange}
                         >

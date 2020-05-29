@@ -85,12 +85,14 @@ export default class ExpsenseForm extends React.Component {
                 {error && <p>{error}</p>}
                 <form onSubmit={this.onSubmit}>
                     <input
+                        className="text-input"
                         type="text"
                         placeholder="Description"
                         value={description}
                         onChange={this.onDescriptionChange}
                     />
                     <input
+                        className="text-input"
                         type="text"
                         placeholder="Amount"
                         value={amount}
@@ -106,6 +108,7 @@ export default class ExpsenseForm extends React.Component {
                         isOutsideRange={() => false}
                     />
                     <textarea
+                        className="text-area"
                         placeholder="Add a note for your expense. (Optional)"
                         value={note}
                         onChange={this.onNoteChange}

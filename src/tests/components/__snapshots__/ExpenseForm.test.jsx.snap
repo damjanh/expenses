@@ -6,12 +6,14 @@ exports[`Should render ExpenseForm correctly 1`] = `
     onSubmit={[Function]}
   >
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Description"
       type="text"
       value=""
     />
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Amount"
       type="text"
@@ -113,6 +115,7 @@ exports[`Should render ExpenseForm correctly 1`] = `
       withPortal={false}
     />
     <textarea
+      className="text-area"
       onChange={[Function]}
       placeholder="Add a note for your expense. (Optional)"
       value=""
@@ -132,12 +135,14 @@ exports[`Should render ExpenseForm with expense data correctly 1`] = `
     onSubmit={[Function]}
   >
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Description"
       type="text"
       value="Gym"
     />
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Amount"
       type="text"
@@ -239,6 +244,7 @@ exports[`Should render ExpenseForm with expense data correctly 1`] = `
       withPortal={false}
     />
     <textarea
+      className="text-area"
       onChange={[Function]}
       placeholder="Add a note for your expense. (Optional)"
       value=""
@@ -258,12 +264,14 @@ exports[`Should render error for invalid form submission 1`] = `
     onSubmit={[Function]}
   >
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Description"
       type="text"
       value=""
     />
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Amount"
       type="text"
@@ -365,6 +373,7 @@ exports[`Should render error for invalid form submission 1`] = `
       withPortal={false}
     />
     <textarea
+      className="text-area"
       onChange={[Function]}
       placeholder="Add a note for your expense. (Optional)"
       value=""
@@ -387,12 +396,14 @@ exports[`Should render error for invalid form submission 2`] = `
     onSubmit={[Function]}
   >
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Description"
       type="text"
       value=""
     />
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Amount"
       type="text"
@@ -494,6 +505,7 @@ exports[`Should render error for invalid form submission 2`] = `
       withPortal={false}
     />
     <textarea
+      className="text-area"
       onChange={[Function]}
       placeholder="Add a note for your expense. (Optional)"
       value=""

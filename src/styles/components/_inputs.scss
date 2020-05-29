@@ -10,3 +10,9 @@
     @extend .text-input;
     
 }
+
+.text-area {
+    @extend .text-input;
+    height: 10rem;
+    
+}

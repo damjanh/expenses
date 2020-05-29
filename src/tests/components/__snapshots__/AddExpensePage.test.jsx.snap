@@ -15,17 +15,21 @@ exports[`Should handle onSubmit 1`] = `
       </h1>
     </div>
   </div>
-  <ExpsenseForm
-    expense={
-      Object {
-        "amount": null,
-        "createdAt": null,
-        "description": "",
-        "note": "",
+  <div
+    className="content-container"
+  >
+    <ExpsenseForm
+      expense={
+        Object {
+          "amount": null,
+          "createdAt": null,
+          "description": "",
+          "note": "",
+        }
       }
-    }
-    onSubmit={[Function]}
-  />
+      onSubmit={[Function]}
+    />
+  </div>
 </div>
 `;
 
@@ -44,16 +48,20 @@ exports[`Should render AddExpensePage correctly 1`] = `
       </h1>
     </div>
   </div>
-  <ExpsenseForm
-    expense={
-      Object {
-        "amount": null,
-        "createdAt": null,
-        "description": "",
-        "note": "",
+  <div
+    className="content-container"
+  >
+    <ExpsenseForm
+      expense={
+        Object {
+          "amount": null,
+          "createdAt": null,
+          "description": "",
+          "note": "",
+        }
       }
-    }
-    onSubmit={[Function]}
-  />
+      onSubmit={[Function]}
+    />
+  </div>
 </div>
 `;

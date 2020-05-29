@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'test') {
 module.exports = (env) => {
     const isProduction = env === 'production';
     return {
-        entry: './src/app.jsx',
+        entry: ['babel-polyfill', './src/app.jsx'],
         output: {
             publicPath: '/',
             path: path.join(__dirname, '/dist'),
